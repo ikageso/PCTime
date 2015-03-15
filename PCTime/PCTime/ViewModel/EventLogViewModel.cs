@@ -32,10 +32,7 @@ namespace PCTime.ViewModel
                 , (x) =>
                 {
                     // ValidationRulesにより入力エラーがある場合は無効にする
-                    if (this.HasErrors())
-                        return false;
-
-                    return true;
+                    return !this.HasErrors();
                 });
 
             // 閉じるコマンド

@@ -45,8 +45,6 @@ namespace PCTime.ViewModel.ValidateionRules
             }
 
             return true;
-
-
         }
 
     }
