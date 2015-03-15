@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="PCTime.View.EventDetailControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="Auto" Width="306">
+  <UserControl.Resources>
+    <DataTemplate x:Key="EventDetailItemsControl">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{Binding StartTime, StringFormat=HH:mm:ss}" TextAlignment="Center" FontSize="14"/>
+        <TextBlock Text="{Binding EndTime, StringFormat=HH:mm:ss}" Grid.Column="1" TextAlignment="Center" FontSize="14"/>
+      </Grid>
+    </DataTemplate>
+  </UserControl.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="16"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="10"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Label Content="開始" Grid.Column="1" Padding="0,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14"/>
+    <Label Content="終了" Grid.Column="2" Padding="0,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14"/>
+    <ItemsControl Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding DateList}" ItemTemplate="{StaticResource EventDetailItemsControl}"/>
+  </Grid>
+</UserControl>

@@ -1,0 +1,19 @@
+﻿<Application x:Class="PCTime.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="/View/EventLogViewWindow.xaml">
+    <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="View/Style/StyleColors.xaml"/>
+        <ResourceDictionary Source="View/Style/StyleButton.xaml" />
+        <ResourceDictionary Source="View/Style/StyleWindow.xaml" />
+        <ResourceDictionary Source="View/Style/StyleToggleButton.xaml" />
+        <ResourceDictionary Source="View/Style/StyleCalendar.xaml" />
+        <ResourceDictionary Source="View/Style/StyleDatePicker.xaml" />
+        <ResourceDictionary Source="View/Style/StyleProgressBar.xaml" />
+        <ResourceDictionary Source="View/Style/StyleToolTip.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

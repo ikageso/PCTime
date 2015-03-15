@@ -1,0 +1,153 @@
+﻿<Window x:Class="PCTime.View.EventLogViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mvvm="clr-namespace:Microsoft.TeamFoundation.MVVM;assembly=Microsoft.TeamFoundation.Controls"
+        mvvm:MVVMSupport.ViewModel="{Binding}"       
+        xmlns:conv="clr-namespace:PCTime.View.Converter"
+        xmlns:local ="clr-namespace:PCTime.View"       
+        xmlns:vm ="clr-namespace:PCTime.ViewModel"       
+        Title="イベントログ" Height="603" Width="350"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Name="Chrome"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterOwner" ResizeMode="CanResizeWithGrip">
+  <Window.DataContext>
+    <vm:EventLogViewModel />
+  </Window.DataContext>
+  <Window.Resources>
+    <conv:VisivilityToBooleanConverter x:Key="VisivilityToBooleanConv"/>
+    <conv:DateToWeek2ColorConverter x:Key="DateToWeek2ColorConv"/>
+    <conv:DateFormWeekBackGroundBrushConverter x:Key="DateFormWeekBackGroundConv"/>
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConv"/>
+    <mvvm:RegisterWindow x:Key="ProgressWindowKey" Type="local:ProgressWindow" />
+  </Window.Resources>
+  <Border CornerRadius="10,10,0,10" BorderBrush="Black" BorderThickness="1" >
+    <Border.Background>
+      <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        <GradientStop Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}" Offset="1"/>
+        <GradientStop Color="{DynamicResource {x:Static SystemColors.HotTrackColorKey}}"/>
+      </LinearGradientBrush>
+    </Border.Background>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="20"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="2"/>
+        <ColumnDefinition Width="6"/>
+        <ColumnDefinition Width="30"/>
+        <ColumnDefinition Width="2"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="2"/>
+        <RowDefinition Height="Auto" MinHeight="26"/>
+        <RowDefinition Height="2"/>
+        <RowDefinition/>
+        <RowDefinition Height="13"/>
+      </Grid.RowDefinitions>
+      <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding DateTimeDatas}" FontSize="16" Grid.Row="5" Grid.ColumnSpan="6"
+                CanUserSortColumns="True"
+                CanUserAddRows="False" CanUserDeleteRows="False"
+                IsReadOnly="True" SelectionMode="Single" SelectionUnit="Cell" Grid.Column="1" >
+        <DataGrid.Resources>
+          <DataTemplate x:Key="ExpandDetails">
+            <ToggleButton Name="ShowDetails"
+              IsChecked="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow},
+              Path=DetailsVisibility,
+              Converter={StaticResource VisivilityToBooleanConv},
+              Mode=TwoWay}"
+              Margin="0,0,0,0"
+              Style="{StaticResource  ToggleButtonStyle1}"/>
+          </DataTemplate>
+        </DataGrid.Resources>
+        <DataGrid.CellStyle>
+          <Style TargetType="DataGridCell">
+            <Style.Triggers>
+              <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="Black" />
+              </Trigger>
+              <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="Black" />
+              </Trigger>
+            </Style.Triggers>
+          </Style>
+        </DataGrid.CellStyle>
+        <DataGrid.ColumnHeaderStyle>
+          <Style TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+          </Style>
+        </DataGrid.ColumnHeaderStyle>
+        <DataGrid.RowHeaderStyle>
+          <Style TargetType="DataGridRowHeader">
+            <Setter Property="Width" Value="0" />
+          </Style>
+        </DataGrid.RowHeaderStyle>
+        <DataGrid.Columns>
+          <DataGridTemplateColumn Header="" CellTemplate="{StaticResource ExpandDetails}" Width="30">
+          </DataGridTemplateColumn>
+          <DataGridTextColumn Header="日付" Width="Auto" CanUserSort="True" SortMemberPath="Date">
+            <DataGridTextColumn.ElementStyle>
+              <Style TargetType="{x:Type TextBlock}" >
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="Text" Value="{Binding Date}" />
+                <Setter Property="Background" Value="{Binding Date, Converter={StaticResource DateToWeek2ColorConv}}" />
+                <Setter Property="Foreground" Value="{Binding Path=Background, RelativeSource={RelativeSource Self}, Converter={StaticResource DateFormWeekBackGroundConv}}" />
+              </Style>
+            </DataGridTextColumn.ElementStyle>
+          </DataGridTextColumn>
+          <DataGridTextColumn
+            CanUserSort="False"
+            Width="*"
+            Header="起動時刻">
+            <DataGridTextColumn.ElementStyle>
+              <Style TargetType="{x:Type TextBlock}" >
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="Text" Value="{Binding StartTime, StringFormat=HH:mm:ss}"/>
+              </Style>
+            </DataGridTextColumn.ElementStyle>
+          </DataGridTextColumn>
+          <DataGridTextColumn
+            CanUserSort="False" 
+            Width="*"
+            Header="終了時刻">
+            <DataGridTextColumn.ElementStyle>
+              <Style TargetType="{x:Type TextBlock}" >
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="Text" Value="{Binding EndTime, StringFormat=HH:mm:ss}"/>
+              </Style>
+            </DataGridTextColumn.ElementStyle>
+          </DataGridTextColumn>
+        </DataGrid.Columns>
+        <DataGrid.RowDetailsTemplate>
+          <DataTemplate>
+            <Grid Background="LightGray">
+              <local:EventDetailControl />
+            </Grid>
+          </DataTemplate>
+        </DataGrid.RowDetailsTemplate>
+      </DataGrid>
+      <!-- ボタン類 -->
+      <Label Grid.ColumnSpan="4" Content="{Binding Path=Title, ElementName=Chrome}" Grid.Row="1" FontSize="26" Foreground="White" Padding="10,0,0,0" Grid.Column="1"/>
+      <Button Style="{StaticResource buttonStyleRed}" Content="X" Grid.Column="6" Grid.Row="1" Command="{Binding CloseCommand}"/>
+      <Button Name="btnView" Content="表示" Style="{StaticResource buttonStyleBlue}" Grid.Column="5" FontSize="11" Command="{Binding ViewCommand}" Grid.Row="3" Grid.ColumnSpan="2">
+
+      </Button>
+      <DatePicker Name="startDate" SelectedDate="{Binding StartDate, ValidatesOnDataErrors=True}" Grid.Row="3" Grid.Column="1" Style="{StaticResource DatePickerStyle1}">
+        <!--<ToolTipService.ToolTip>       
+          <ToolTip>
+            <TextBlock Text="{Binding Path=(Validation.Errors)[0].ErrorContent,
+                                          RelativeSource={RelativeSource Self}}">
+            </TextBlock>
+          </ToolTip>
+        </ToolTipService.ToolTip>-->
+      </DatePicker>
+      <Label Content="➡" Grid.Column="2" Padding="0,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="3"/>
+      <DatePicker Grid.Column="3" SelectedDate="{Binding EndDate, ValidatesOnDataErrors=True}" Grid.Row="3" Style="{StaticResource DatePickerStyle1}"/>
+
+    </Grid>
+  </Border>
+</Window>
