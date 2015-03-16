@@ -5,7 +5,7 @@ Get running time from the event log.
 
 ### Requirements
 * Visual Studio 2013
-* .Net 4.5
+* .NET 4.5
 
 ### Features
 * Microsoft.TeamFoundation.MVVM
