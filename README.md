@@ -1,4 +1,4 @@
 # PCTime
 イベントログから稼働時間を取得する
 
-![appwindow](https://github.com/ikageso/PCTime/wiki/images/pctime001.JPG)
+<img src="https://github.com/ikageso/PCTime/wiki/images/pctime001.JPG" />
