@@ -3,10 +3,10 @@
 
 ![](https://github.com/ikageso/PCTime/wiki/images/pctime001.JPG)
 
-## Requirements
+### Requirements
 * Visual Studio 2013
 * .Net 4.5
 
-## Features
+### Features
 * Microsoft.TeamFoundation.MVVM
 
