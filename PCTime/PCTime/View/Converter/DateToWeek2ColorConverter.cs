@@ -1,6 +1,7 @@
 ﻿using PCTime.Common;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,25 +40,37 @@ namespace PCTime.View.Converter
             SolidColorBrush br = Brushes.Transparent;
 
             try
-            {              
+            {
+                // 日本の場合
+                if (CultureInfo.CurrentCulture.Equals(System.Globalization.CultureInfo.GetCultureInfo("ja-JP")))
+                {
+                    var holiday = HolidayChecker.Holiday(dt1);
 
-                var holiday = HolidayChecker.Holiday(dt1);
 
+                    if (holiday.week == DayOfWeek.Saturday)
+                        br = Brushes.Blue;
 
-                if (holiday.week == DayOfWeek.Saturday)
-                    br = Brushes.Blue;
+                    if (holiday.week == DayOfWeek.Sunday)
+                        br = Brushes.Red;
 
-                if (holiday.week == DayOfWeek.Sunday)
-                    br = Brushes.Red;
+                    if (holiday.holiday == HolidayChecker.HolidayInfo.HOLIDAY.HOLIDAY)
+                        br = Brushes.Red;
 
-                if (holiday.holiday == HolidayChecker.HolidayInfo.HOLIDAY.HOLIDAY)
-                    br = Brushes.Red;
+                    if (holiday.holiday == HolidayChecker.HolidayInfo.HOLIDAY.SYUKUJITSU)
+                        br = Brushes.Red;
 
-                if (holiday.holiday == HolidayChecker.HolidayInfo.HOLIDAY.SYUKUJITSU)
-                    br = Brushes.Red;
+                    if (holiday.holiday == HolidayChecker.HolidayInfo.HOLIDAY.C_HOLIDAY)
+                        br = Brushes.Red;
+                }
+                else
+                {
+                    if (dt1.DayOfWeek == DayOfWeek.Saturday)
+                        br = Brushes.Blue;
 
-                if (holiday.holiday == HolidayChecker.HolidayInfo.HOLIDAY.C_HOLIDAY)
-                    br = Brushes.Red;
+                    if (dt1.DayOfWeek == DayOfWeek.Sunday)
+                        br = Brushes.Red;
+
+                }
 
             }
             finally

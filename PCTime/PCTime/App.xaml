@@ -1,6 +1,7 @@
 ﻿<Application x:Class="PCTime.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:properties="clr-namespace:PCTime.Properties"
              StartupUri="/View/EventLogViewWindow.xaml">
     <Application.Resources>
     <ResourceDictionary>
@@ -14,6 +15,8 @@
         <ResourceDictionary Source="View/Style/StyleProgressBar.xaml" />
         <ResourceDictionary Source="View/Style/StyleToolTip.xaml" />
       </ResourceDictionary.MergedDictionaries>
+      <properties:Resources x:Key="resources" />
     </ResourceDictionary>
+
   </Application.Resources>
 </Application>

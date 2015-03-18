@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CancelButtonLabel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>キャンセル</value>
   </data>
   <data name="DateLabel" xml:space="preserve">
-    <value>Date</value>
+    <value>日付</value>
   </data>
   <data name="EndTimeDetailLabel" xml:space="preserve">
-    <value>End</value>
+    <value>終了</value>
   </data>
   <data name="EndTimeLabel" xml:space="preserve">
-    <value>End time</value>
+    <value>終了時間</value>
   </data>
   <data name="ProgresEventlogLabel" xml:space="preserve">
-    <value>Event log acquisition process in</value>
+    <value>イベントログ取得処理中</value>
   </data>
   <data name="ProgresResultLabel" xml:space="preserve">
-    <value>Results shaping process</value>
+    <value>結果整形処理中</value>
   </data>
   <data name="StartTimeDeteilLabel" xml:space="preserve">
-    <value>Start</value>
+    <value>開始</value>
   </data>
   <data name="StartTimeLabel" xml:space="preserve">
-    <value>Start　time</value>
+    <value>開始時間</value>
   </data>
   <data name="ViewButtonTitle" xml:space="preserve">
-    <value>View</value>
+    <value>表示</value>
   </data>
   <data name="WindowTitle" xml:space="preserve">
-    <value>Eventlog</value>
+    <value>イベントログ</value>
   </data>
 </root>

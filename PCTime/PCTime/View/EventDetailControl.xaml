@@ -26,8 +26,8 @@
       <ColumnDefinition Width="*"/>
       <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
-    <Label Content="開始" Grid.Column="1" Padding="0,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14"/>
-    <Label Content="終了" Grid.Column="2" Padding="0,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14"/>
+    <Label Grid.Column="1" Padding="0,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Content="{Binding StartTimeDeteilLabel, Mode=OneWay, Source={StaticResource resources}}"/>
+    <Label Content="{Binding EndTimeDetailLabel, Mode=OneWay, Source={StaticResource resources}}" Grid.Column="2" Padding="0,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14"/>
     <ItemsControl Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding DateList}" ItemTemplate="{StaticResource EventDetailItemsControl}"/>
   </Grid>
 </UserControl>

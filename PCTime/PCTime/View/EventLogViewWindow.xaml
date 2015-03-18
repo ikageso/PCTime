@@ -5,8 +5,7 @@
         mvvm:MVVMSupport.ViewModel="{Binding}"       
         xmlns:conv="clr-namespace:PCTime.View.Converter"
         xmlns:local ="clr-namespace:PCTime.View"       
-        xmlns:vm ="clr-namespace:PCTime.ViewModel"       
-        Title="イベントログ" Height="603" Width="350"
+        xmlns:vm ="clr-namespace:PCTime.ViewModel" Height="603" Width="350"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         Name="Chrome"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterOwner" ResizeMode="CanResizeWithGrip">
@@ -17,9 +16,12 @@
     <conv:VisivilityToBooleanConverter x:Key="VisivilityToBooleanConv"/>
     <conv:DateToWeek2ColorConverter x:Key="DateToWeek2ColorConv"/>
     <conv:DateFormWeekBackGroundBrushConverter x:Key="DateFormWeekBackGroundConv"/>
-    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConv"/>
+    <!--<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConv"/>-->
     <mvvm:RegisterWindow x:Key="ProgressWindowKey" Type="local:ProgressWindow" />
   </Window.Resources>
+  <Window.Title>
+    <Binding Mode="OneWay" Path="WindowTitle" Source="{StaticResource resources}"/>
+  </Window.Title>
   <Border CornerRadius="10,10,0,10" BorderBrush="Black" BorderThickness="1" >
     <Border.Background>
       <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -89,7 +91,7 @@
         <DataGrid.Columns>
           <DataGridTemplateColumn Header="" CellTemplate="{StaticResource ExpandDetails}" Width="30">
           </DataGridTemplateColumn>
-          <DataGridTextColumn Header="日付" Width="Auto" CanUserSort="True" SortMemberPath="Date">
+          <DataGridTextColumn Header="{Binding DateLabel, Mode=OneWay, Source={StaticResource resources}}" Width="Auto" CanUserSort="True" SortMemberPath="Date">
             <DataGridTextColumn.ElementStyle>
               <Style TargetType="{x:Type TextBlock}" >
                 <Setter Property="TextAlignment" Value="Center" />
@@ -102,7 +104,7 @@
           <DataGridTextColumn
             CanUserSort="False"
             Width="*"
-            Header="起動時刻">
+            Header="{Binding StartTimeLabel, Mode=OneWay, Source={StaticResource resources}}">
             <DataGridTextColumn.ElementStyle>
               <Style TargetType="{x:Type TextBlock}" >
                 <Setter Property="TextAlignment" Value="Center" />
@@ -113,7 +115,7 @@
           <DataGridTextColumn
             CanUserSort="False" 
             Width="*"
-            Header="終了時刻">
+            Header="{Binding EndTimeLabel, Mode=OneWay, Source={StaticResource resources}}">
             <DataGridTextColumn.ElementStyle>
               <Style TargetType="{x:Type TextBlock}" >
                 <Setter Property="TextAlignment" Value="Center" />
@@ -131,9 +133,9 @@
         </DataGrid.RowDetailsTemplate>
       </DataGrid>
       <!-- ボタン類 -->
-      <Label Grid.ColumnSpan="4" Content="{Binding Path=Title, ElementName=Chrome}" Grid.Row="1" FontSize="26" Foreground="White" Padding="10,0,0,0" Grid.Column="1"/>
+      <Label Grid.ColumnSpan="4" Content="{Binding Path=Title, ElementName=Chrome}" Grid.Row="1" FontSize="22" Foreground="White" Padding="10,0,0,0" Grid.Column="1"/>
       <Button Style="{StaticResource buttonStyleRed}" Content="X" Grid.Column="6" Grid.Row="1" Command="{Binding CloseCommand}"/>
-      <Button Name="btnView" Content="表示" Style="{StaticResource buttonStyleBlue}" Grid.Column="5" FontSize="11" Command="{Binding ViewCommand}" Grid.Row="3" Grid.ColumnSpan="2">
+      <Button Name="btnView" Content="{Binding ViewButtonTitle, Mode=OneWay, Source={StaticResource resources}}" Style="{StaticResource buttonStyleBlue}" Grid.Column="5" FontSize="11" Command="{Binding ViewCommand}" Grid.Row="3" Grid.ColumnSpan="2">
 
       </Button>
       <DatePicker Name="startDate" SelectedDate="{Binding StartDate, ValidatesOnDataErrors=True}" Grid.Row="3" Grid.Column="1" Style="{StaticResource DatePickerStyle1}">

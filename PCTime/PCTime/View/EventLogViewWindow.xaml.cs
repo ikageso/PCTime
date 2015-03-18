@@ -21,6 +21,10 @@ namespace PCTime.View
     {
         public EventLogViewWindow()
         {
+            //// Debug for "en-US"
+            //Properties.Resources.Culture = System.Globalization.CultureInfo.GetCultureInfo("en-US");
+            //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+            
             InitializeComponent();
         }
 

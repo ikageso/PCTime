@@ -22,7 +22,7 @@ namespace PCTime.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace PCTime.Properties {
         ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PCTime.Properties.Resources", typeof(Resources).Assembly);
@@ -51,12 +51,102 @@ namespace PCTime.Properties {
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Cancel に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CancelButtonLabel {
+            get {
+                return ResourceManager.GetString("CancelButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Date に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DateLabel {
+            get {
+                return ResourceManager.GetString("DateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   End に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string EndTimeDetailLabel {
+            get {
+                return ResourceManager.GetString("EndTimeDetailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   End time に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string EndTimeLabel {
+            get {
+                return ResourceManager.GetString("EndTimeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Event log acquisition process in に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ProgresEventlogLabel {
+            get {
+                return ResourceManager.GetString("ProgresEventlogLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Results shaping process に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ProgresResultLabel {
+            get {
+                return ResourceManager.GetString("ProgresResultLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Start に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string StartTimeDeteilLabel {
+            get {
+                return ResourceManager.GetString("StartTimeDeteilLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Start　time に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string StartTimeLabel {
+            get {
+                return ResourceManager.GetString("StartTimeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   View に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ViewButtonTitle {
+            get {
+                return ResourceManager.GetString("ViewButtonTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Eventlog に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string WindowTitle {
+            get {
+                return ResourceManager.GetString("WindowTitle", resourceCulture);
             }
         }
     }

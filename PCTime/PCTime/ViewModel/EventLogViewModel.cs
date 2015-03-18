@@ -130,7 +130,7 @@ namespace PCTime.ViewModel
                 {
                     results = EventLogDataModel.GetEventLog(startDate, endDate);
                 }
-                , "イベントログ取得処理中");
+                , Properties.Resources.ProgresEventlogLabel);
 
             // 処理完了時
             if (bRes)
@@ -141,7 +141,7 @@ namespace PCTime.ViewModel
                 {
                     list = EventLogDataModel.MakeData(results);
                 }
-                , "結果整形処理中");
+                , Properties.Resources.ProgresResultLabel);
             }
 
             if (bRes)

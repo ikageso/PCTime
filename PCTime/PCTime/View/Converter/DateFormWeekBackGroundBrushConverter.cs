@@ -11,7 +11,7 @@ using System.Windows.Media;
 namespace PCTime.View.Converter
 {
     /// <summary>
-    /// 日付の文字色を返す
+    /// 日付の文字色(Brushes)を返す
     /// </summary>
     class DateFormWeekBackGroundBrushConverter : IValueConverter
     {
