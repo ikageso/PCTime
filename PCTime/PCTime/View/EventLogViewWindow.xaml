@@ -16,7 +16,7 @@
     <conv:VisivilityToBooleanConverter x:Key="VisivilityToBooleanConv"/>
     <conv:DateToWeek2ColorConverter x:Key="DateToWeek2ColorConv"/>
     <conv:DateFormWeekBackGroundBrushConverter x:Key="DateFormWeekBackGroundConv"/>
-    <!--<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConv"/>-->
+    <conv:DateTimeConverter x:Key="DateTimeConv"/>
     <mvvm:RegisterWindow x:Key="ProgressWindowKey" Type="local:ProgressWindow" />
   </Window.Resources>
   <Window.Title>
@@ -95,7 +95,7 @@
             <DataGridTextColumn.ElementStyle>
               <Style TargetType="{x:Type TextBlock}" >
                 <Setter Property="TextAlignment" Value="Center" />
-                <Setter Property="Text" Value="{Binding Date}" />
+                <Setter Property="Text" Value="{Binding Date, Converter={StaticResource DateTimeConv}}" />
                 <Setter Property="Background" Value="{Binding Date, Converter={StaticResource DateToWeek2ColorConv}}" />
                 <Setter Property="Foreground" Value="{Binding Path=Background, RelativeSource={RelativeSource Self}, Converter={StaticResource DateFormWeekBackGroundConv}}" />
               </Style>

@@ -65,6 +65,7 @@
     <Compile Include="ViewModel\ValidateionRules\ValidationRuleDate.cs" />
     <Compile Include="View\Converter\DateFormWeekBackGroundColorConverter.cs" />
     <Compile Include="View\Converter\DateFormWeekBackGroundBrushConverter.cs" />
+    <Compile Include="View\Converter\DateTimeConverter.cs" />
     <Compile Include="View\Converter\DateToWeek2ColorConverter.cs" />
     <Compile Include="View\Converter\VisivilityToBooleanConverter.cs" />
     <Compile Include="View\EventDetailControl.xaml.cs">
