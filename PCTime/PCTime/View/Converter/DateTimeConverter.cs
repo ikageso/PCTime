@@ -12,7 +12,7 @@ using System.Windows.Media;
 namespace PCTime.View.Converter
 {
     /// <summary>
-    /// 時間を返す
+    /// カルチャの日付を返す
     /// </summary>
     class DateTimeConverter : IValueConverter
     {
