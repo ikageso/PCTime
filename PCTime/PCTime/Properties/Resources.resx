@@ -123,11 +123,17 @@
   <data name="DateLabel" xml:space="preserve">
     <value>Date</value>
   </data>
+  <data name="DateReversedError" xml:space="preserve">
+    <value>Date has been reversed</value>
+  </data>
   <data name="EndTimeDetailLabel" xml:space="preserve">
     <value>End</value>
   </data>
   <data name="EndTimeLabel" xml:space="preserve">
     <value>End time</value>
+  </data>
+  <data name="FutureDateError" xml:space="preserve">
+    <value>Future date can not be specified</value>
   </data>
   <data name="ProgresEventlogLabel" xml:space="preserve">
     <value>Event log acquisition process in</value>

@@ -79,6 +79,15 @@ namespace PCTime.Properties {
         }
         
         /// <summary>
+        ///   Date has been reversed に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DateReversedError {
+            get {
+                return ResourceManager.GetString("DateReversedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   End に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string EndTimeDetailLabel {
@@ -93,6 +102,15 @@ namespace PCTime.Properties {
         public static string EndTimeLabel {
             get {
                 return ResourceManager.GetString("EndTimeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Future date can not be specified に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FutureDateError {
+            get {
+                return ResourceManager.GetString("FutureDateError", resourceCulture);
             }
         }
         

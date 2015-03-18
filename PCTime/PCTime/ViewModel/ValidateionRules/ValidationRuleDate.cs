@@ -28,7 +28,7 @@ namespace PCTime.ViewModel.ValidateionRules
             // 未来日をチェック
             if (targetDate > todayEndTime)
             {
-                Error = "未来日は指定できません";
+                Error = Properties.Resources.FutureDateError;
                 return false;
             }
 
@@ -40,7 +40,7 @@ namespace PCTime.ViewModel.ValidateionRules
 
             if (startDate > endDate)
             {
-                Error = "日付が逆転しています";
+                Error = Properties.Resources.DateReversedError;
                 return false;
             }
 
