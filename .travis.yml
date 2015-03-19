@@ -1,2 +1,2 @@
 language: csharp
-solution: PCTime.sln
+solution: PCTime/PCTime.sln
