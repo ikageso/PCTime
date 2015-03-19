@@ -1,5 +1,4 @@
 language: csharp
 solution: PCTime/PCTime.sln
 install:
-  - sudo apt-get install -y gtk-sharp2
   - nuget restore PCTime/PCTime.sln
