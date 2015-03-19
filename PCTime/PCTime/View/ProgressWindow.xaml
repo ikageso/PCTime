@@ -21,7 +21,7 @@
       <RowDefinition Height="61*"/>
     </Grid.RowDefinitions>
     <ProgressBar Grid.Row="3" Grid.Column="1" Maximum="{Binding Max}" Value="{Binding Value}" IsIndeterminate="True"/>
-    <Button Content="キャンセル" Grid.Column="1" HorizontalAlignment="Center" Height="38" Grid.Row="4" VerticalAlignment="Center" Style="{StaticResource buttonStyleBlue}" Width="114" Command="{Binding CancelCommand}"/>
+    <Button Content="{Binding CancelButtonLabel, Mode=OneWay, Source={StaticResource resources}}" Grid.Column="1" HorizontalAlignment="Center" Height="38" Grid.Row="4" VerticalAlignment="Center" Style="{StaticResource buttonStyleBlue}" Width="114" Command="{Binding CancelCommand}"/>
     <TextBlock Grid.Column="1" TextWrapping="Wrap" Grid.Row="1" FontSize="20" Text="{Binding Message}"/>
 
   </Grid>
