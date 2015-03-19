@@ -1,4 +1,4 @@
 language: csharp
 solution: PCTime/PCTime.sln
 install:
-  - nuget restore PCTime/PCTime.sln
+  - nuget restore PCTime.sln
