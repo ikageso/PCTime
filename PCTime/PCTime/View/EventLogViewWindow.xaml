@@ -8,7 +8,7 @@
         xmlns:vm ="clr-namespace:PCTime.ViewModel" Height="603" Width="350"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         Name="Chrome"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterOwner" ResizeMode="CanResizeWithGrip">
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterOwner" ResizeMode="CanResizeWithGrip" Icon="/PCTime;component/Icon.ico">
   <Window.DataContext>
     <vm:EventLogViewModel />
   </Window.DataContext>

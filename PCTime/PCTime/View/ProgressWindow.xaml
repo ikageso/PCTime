@@ -5,7 +5,7 @@
         mvvm:MVVMSupport.ViewModel="{Binding}"
         xmlns:local="clr-namespace:PCTime.View"
         Title="ProgressWindow" Height="190" Width="448"
-        Style="{StaticResource windowStyleProgress}" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterOwner"
+        Style="{StaticResource windowStyleProgress}" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterOwner" Icon="/PCTime;component/Icon.ico"
         >
   <Grid>
     <Grid.ColumnDefinitions>
