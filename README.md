@@ -1,4 +1,4 @@
-![](https://github.com/ikageso/PCTime/wiki/images/PCTime_Icon.png) # PCTime 
+# PCTime ![](https://github.com/ikageso/PCTime/wiki/images/PCTime_Icon.png) 
 
 
 [![Build status](https://ci.appveyor.com/api/projects/status/h4f0o2gh04gwc619?svg=true)](https://ci.appveyor.com/project/ikageso/pctime)
