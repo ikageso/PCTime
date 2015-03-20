@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace PCTime.ViewModel
 {
-    class ProgressWindowViewModel : WindowViewModel
+    public class ProgressWindowViewModel : WindowViewModel
     {
         public ProgressWindowViewModel()
         {

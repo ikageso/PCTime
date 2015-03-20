@@ -16,7 +16,7 @@ using System.Windows.Input;
 
 namespace PCTime.ViewModel
 {
-    class EventLogViewModel : WindowViewModel
+    public class EventLogViewModel : WindowViewModel
     {
         /// <summary>
         /// コンストラクタ
