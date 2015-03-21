@@ -160,7 +160,7 @@ namespace PCTime.Properties {
         }
         
         /// <summary>
-        ///   Eventlog に類似しているローカライズされた文字列を検索します。
+        ///   Start/end time に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string WindowTitle {
             get {
