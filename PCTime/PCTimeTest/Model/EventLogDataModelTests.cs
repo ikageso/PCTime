@@ -7,10 +7,10 @@ using PCTime.Model;
 using NUnit.Framework;
 namespace PCTime.Model.Tests
 {
-    [TestFixture()]
+    [TestFixture, Category("EventLogDataModel")]
     public class EventLogDataModelTests
     {
-        [Test()]
+        [Test, Category("GetEventLog")]
         public void GetEventLogTest()
         {
             var now = DateTime.Now;
@@ -23,7 +23,7 @@ namespace PCTime.Model.Tests
             Assert.True(results != null);
         }
 
-        [Test()]
+        [Test, Category("GetEventLog")]
         public void MakeDataTest()
         {
             var now = DateTime.Now;

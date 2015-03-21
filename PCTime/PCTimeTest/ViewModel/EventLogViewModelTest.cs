@@ -8,10 +8,10 @@ using NUnit.Framework;
 using Microsoft.TeamFoundation.MVVM;
 namespace PCTime.ViewModel.Tests
 {
-    [TestFixture()]
+    [TestFixture, Category("EventLogViewModel")]
     public class EventLogViewModelTest
     {
-        [Test()]
+        [Test, Category("nomal")]
         public void EventLogViewModelTest01()
         {
             var vm = new EventLogViewModel();
@@ -24,7 +24,7 @@ namespace PCTime.ViewModel.Tests
             Assert.True(!(vm as WindowViewModel).HasErrors());
         }
 
-        [Test()]
+        [Test, Category("error")]
         public void EventLogViewModelTest02()
         {
             var vm = new EventLogViewModel();
@@ -37,7 +37,7 @@ namespace PCTime.ViewModel.Tests
             Assert.True((vm as WindowViewModel).HasErrors());
         }
 
-        [Test()]
+        [Test, Category("error")]
         public void EventLogViewModelTest03()
         {
             var vm = new EventLogViewModel();
@@ -50,7 +50,7 @@ namespace PCTime.ViewModel.Tests
             Assert.True((vm as WindowViewModel).HasErrors());
         }
 
-        [Test()]
+        [Test, Category("error")]
         public void EventLogViewModelTest04()
         {
             var vm = new EventLogViewModel();
