@@ -10,8 +10,3 @@ build:
 test_script:
     nunit-console ./PCTime/PCTimeTest/PCTimeTest.csproj /xml:nunit-results.xml /config:Release
 
-# upload results to AppVeyor
-after_test:
-    $wc = New-Object 'System.Net.WebClient'
-    $wc.UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nunit-results.xml))
-
